@@ -1,9 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"log"
-
+	"strings"
 	"github.com/gocolly/colly"
 )
 
@@ -15,17 +14,45 @@ func updateBlum(url string) {
 			artistText := colElement.ChildText("h2.artist_name")
 			title := colElement.ChildText("div.italic")
 			// dateAndLocation := colElement.ChildText("h2.div")
-			fmt.Println(colElement.Text)
-			location := colElement.ChildText("p.index-grid__text-location")
-			blumExhibitions = append(blumExhibitions, Exhibition{
-				Gallery:   "Pace Gallery",
-				Location:  location,
-				Artist:    artistText,
-				Title:     title,
-				StartDate: "",
-				EndDate:   "",
-				Notes:     "",
-			})
+			galleryTextWithoutTitle := strings.ReplaceAll(colElement.Text, title, "")
+			galleryTextWithoutTitleAndArtistText := strings.ReplaceAll(galleryTextWithoutTitle, artistText, "")
+			containsTokyo := strings.Contains(galleryTextWithoutTitleAndArtistText, "Tokyo")
+			containsNewYork := strings.Contains(galleryTextWithoutTitleAndArtistText, "New York")
+			containsLA := strings.Contains(galleryTextWithoutTitleAndArtistText, "Los Angeles")
+			datesWithoutTitleArtistTextAndTokyo := strings.ReplaceAll(galleryTextWithoutTitleAndArtistText, "Tokyo", "")
+			datesWithoutTitleArtistTextAndLA := strings.ReplaceAll(galleryTextWithoutTitleAndArtistText, "Los Angeles", "")
+			datesWithoutTitleArtistTextAndNewYork := strings.ReplaceAll(galleryTextWithoutTitleAndArtistText, "New York", "")
+			if containsTokyo {
+				blumExhibitions = append(blumExhibitions, Exhibition{
+					Gallery:   "Blum",
+					Location:  "Tokyo",
+					Artist:    artistText,
+					Title:     title,
+					StartDate: datesWithoutTitleArtistTextAndTokyo,
+					EndDate:   datesWithoutTitleArtistTextAndTokyo,
+					Notes:     "",
+				})
+			} else if containsLA {
+				blumExhibitions = append(blumExhibitions, Exhibition{
+					Gallery:   "Blum",
+					Location:  "Los Angeles",
+					Artist:    artistText,
+					Title:     title,
+					StartDate: datesWithoutTitleArtistTextAndLA,
+					EndDate:   datesWithoutTitleArtistTextAndLA,
+					Notes:     "",
+				})
+			} else if containsNewYork {
+				blumExhibitions = append(blumExhibitions, Exhibition{
+					Gallery:   "Blum",
+					Location:  "New York",
+					Artist:    artistText,
+					Title:     title,
+					StartDate: datesWithoutTitleArtistTextAndNewYork,
+					EndDate:   datesWithoutTitleArtistTextAndNewYork,
+					Notes:     "",
+				})
+			}
 		})
 	})
 	err := c.Visit(url)

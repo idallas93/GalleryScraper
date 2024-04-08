@@ -31,21 +31,21 @@ func main() {
 	matthewMarksUpcoming := "https://www.matthewmarks.com/exhibitions/current"
 	almineRech := "https://www.alminerech.com/exhibitions/"
 	karma := "https://karmakarma.org/exhibitions/"
-	// blum := "https://www.blum-gallery.com/exhibitions/categories/current"
-	mendesWood := "https://mendeswooddm.com/exhibitions/"
+	blum := "https://www.blum-gallery.com/exhibitions/categories/current"
+	// mendesWood := "https://mendeswooddm.com/exhibitions/"
 	galleryUrls := []string{
 		gCurrent, gUpcoming, whiteCube,
 		hauserAndWorth, lisson, davidZwirner,
 		threeZeroThree, alexanderBerggruen, pace,
 		lehmannMaupin, matthewMarksCurrent, matthewMarksUpcoming,
-		almineRech, karma, mendesWood,
+		almineRech, karma, blum, 
 	}
 	galleryFunctions := []func(url string){
 		updateGagosianData, updateGagosianData, updateWhiteCubeData,
 		updateHauserAndWirthData, updateLissonData, updateDavidZwirner,
 		updateThreeZeroThreeData, updateAlexanderBerggruen, updatePace,
 		updateLehmannMaupin, updateMatthewMarks, updateMatthewMarks, updateAlmineRech,
-		updateKarma, updateMendesWoodData,
+		updateKarma, updateBlum,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
 		for i := 0; i < len(galleryUrls); i++ {
