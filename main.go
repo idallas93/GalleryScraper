@@ -20,11 +20,9 @@ func main() {
 	gCurrent := "https://gagosian.com/exhibitions/"
 	gUpcoming := "https://gagosian.com/exhibitions/upcoming/"
 	whiteCube := "https://www.whitecube.com/exhibitions/upcoming"
-	hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
 	lisson := "https://www.lissongallery.com/exhibitions"
 	davidZwirner := "https://www.davidzwirner.com/exhibitions?view=upcoming"
 	threeZeroThree := "https://www.303gallery.com/gallery-exhibitions/upcoming"
-	alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
 	pace := "https://www.pacegallery.com/exhibitions/"
 	lehmannMaupin := "https://www.lehmannmaupin.com/exhibitions/upcoming"
 	matthewMarksCurrent := "https://www.matthewmarks.com/exhibitions/current"
@@ -35,20 +33,30 @@ func main() {
 	davidKordansky := "https://www.davidkordanskygallery.com/exhibitions"
 	gladstone := "https://www.gladstonegallery.com/exhibitions"
 	maxHetzler := "https://www.maxhetzler.com/exhibitions"
+	perrotin := "https://www.perrotin.com/exhibitions/upcoming"
+	petzel := "https://www.petzel.com/exhibitions"
+	skarstedt := "https://www.skarstedt.com/exhibitions"
+	spruethMagers := "https://spruethmagers.com/exhibitions/upcoming"
+	xavierHufkens := "https://www.xavierhufkens.com/exhibitions"
 	// mendesWood := "https://mendeswooddm.com/exhibitions/"
+	// alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
+	// hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
+
+
 	galleryUrls := []string{
-		gCurrent, gUpcoming, whiteCube,
-		hauserAndWorth, lisson, davidZwirner,
-		threeZeroThree, alexanderBerggruen, pace,
+		gCurrent, gUpcoming, whiteCube, lisson, davidZwirner,
+		threeZeroThree, pace,
 		lehmannMaupin, matthewMarksCurrent, matthewMarksUpcoming,
-		almineRech, karma, blum, davidKordansky, gladstone, maxHetzler,
+		almineRech, karma, blum, davidKordansky, gladstone, maxHetzler, 
+		perrotin, petzel, skarstedt, spruethMagers, xavierHufkens,
 	}
 	galleryFunctions := []func(url string){
 		updateGagosianData, updateGagosianData, updateWhiteCubeData,
-		updateHauserAndWirthData, updateLissonData, updateDavidZwirner,
-		updateThreeZeroThreeData, updateAlexanderBerggruen, updatePace,
+		updateLissonData, updateDavidZwirner,
+		updateThreeZeroThreeData, updatePace,
 		updateLehmannMaupin, updateMatthewMarks, updateMatthewMarks, updateAlmineRech,
-		updateKarma, updateBlum, updateDavidKordansky, updateGladstone, updateMaxHetzler,
+		updateKarma, updateBlum, updateDavidKordansky, updateGladstone, updateMaxHetzler, 
+		updatePerrotin, updatePetzel, updateSkarstedt, updateSpruethMagers, updateXavierHufkens,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
 		for i := 0; i < len(galleryUrls); i++ {
