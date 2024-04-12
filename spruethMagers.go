@@ -5,8 +5,6 @@ import (
 	"github.com/gocolly/colly"
 )
 
-var months = []string{"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
-
 func updateSpruethMagers(url string) {
 	c := colly.NewCollector()
 	var spruethMagersExhibitions []Exhibition

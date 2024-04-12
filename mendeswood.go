@@ -33,6 +33,6 @@ func updateMendesWoodData(url string) {
 	err := c.Visit(url)
 	if err != nil {
 		log.Fatal(err)
-	}
-	SaveToExcel(mendesWoodExhibitions)
+		}
+		SaveToExcel(mendesWoodExhibitions)
 }

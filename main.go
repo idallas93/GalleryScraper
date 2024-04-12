@@ -38,25 +38,32 @@ func main() {
 	skarstedt := "https://www.skarstedt.com/exhibitions"
 	spruethMagers := "https://spruethmagers.com/exhibitions/upcoming"
 	xavierHufkens := "https://www.xavierhufkens.com/exhibitions"
-	// mendesWood := "https://mendeswooddm.com/exhibitions/"
-	// alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
-	// hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
-
+	francoisGhebaly := "https://ghebaly.com/"
+	levyGoryDayan := "https://www.levygorvydayan.com/exhibitions"
+	pilarCorrias := "https://www.pilarcorrias.com/exhibitions/"
+	mendesWood := "https://mendeswooddm.com/exhibitions/"
+	alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
+	hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
+	grimm := "https://grimmgallery.com/exhibitions/"
 
 	galleryUrls := []string{
 		gCurrent, gUpcoming, whiteCube, lisson, davidZwirner,
 		threeZeroThree, pace,
 		lehmannMaupin, matthewMarksCurrent, matthewMarksUpcoming,
-		almineRech, karma, blum, davidKordansky, gladstone, maxHetzler, 
-		perrotin, petzel, skarstedt, spruethMagers, xavierHufkens,
+		almineRech, karma, blum, davidKordansky, gladstone, maxHetzler,
+		perrotin, petzel, skarstedt, spruethMagers, xavierHufkens, francoisGhebaly,
+		levyGoryDayan, pilarCorrias,
+		mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
 	}
 	galleryFunctions := []func(url string){
 		updateGagosianData, updateGagosianData, updateWhiteCubeData,
 		updateLissonData, updateDavidZwirner,
 		updateThreeZeroThreeData, updatePace,
 		updateLehmannMaupin, updateMatthewMarks, updateMatthewMarks, updateAlmineRech,
-		updateKarma, updateBlum, updateDavidKordansky, updateGladstone, updateMaxHetzler, 
+		updateKarma, updateBlum, updateDavidKordansky, updateGladstone, updateMaxHetzler,
 		updatePerrotin, updatePetzel, updateSkarstedt, updateSpruethMagers, updateXavierHufkens,
+		updateFrancoisGhebaly, updateLevyGorvyDayan, updatePilarCorrias,
+		updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
 		for i := 0; i < len(galleryUrls); i++ {
@@ -72,7 +79,7 @@ func main() {
 }
 
 func SaveToExcel(exhibition []Exhibition) error {
-	f, err := excelize.OpenFile("inventory.xlsx")
+	f, err := excelize.OpenFile("galleryData.xlsx")
 	if err != nil {
 		f = excelize.NewFile()
 		f.SetCellValue("Sheet1", "A1", "Gallery")
@@ -90,7 +97,7 @@ func SaveToExcel(exhibition []Exhibition) error {
 			f.SetCellValue("Sheet1", "E"+strconv.Itoa(i+2), exhibition[i].StartDate)
 			f.SetCellValue("Sheet1", "E"+strconv.Itoa(i+2), exhibition[i].EndDate)
 		}
-		if err := f.SaveAs("inventory.xlsx"); err != nil {
+		if err := f.SaveAs("galleryData.xlsx"); err != nil {
 			fmt.Println(err)
 		}
 	} else {
@@ -103,7 +110,7 @@ func SaveToExcel(exhibition []Exhibition) error {
 			f.SetCellValue("Sheet1", "E"+strconv.Itoa(len(rows)+1+i), exhibition[i].StartDate)
 			f.SetCellValue("Sheet1", "E"+strconv.Itoa(len(rows)+1+i), exhibition[i].EndDate)
 		}
-		if err := f.SaveAs("inventory.xlsx"); err != nil {
+		if err := f.SaveAs("galleryData.xlsx"); err != nil {
 			fmt.Println(err)
 		}
 	}
