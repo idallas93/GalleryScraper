@@ -41,10 +41,16 @@ func main() {
 	francoisGhebaly := "https://ghebaly.com/"
 	levyGoryDayan := "https://www.levygorvydayan.com/exhibitions"
 	pilarCorrias := "https://www.pilarcorrias.com/exhibitions/"
+	sadieColes := "https://www.sadiecoles.com/exhibitions/current/"
+	luhringAugustine := "https://www.luhringaugustine.com/exhibitions/upcoming"
+	victoriaMiro := "https://www.victoria-miro.com/exhibitions/"
+	kurimanzutto := "https://www.kurimanzutto.com/exhibitions"
+	kaufmannRepetto := "https://kaufmannrepetto.com/exhibitions-current/"
 	mendesWood := "https://mendeswooddm.com/exhibitions/"
 	alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
 	hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
 	grimm := "https://grimmgallery.com/exhibitions/"
+
 
 	galleryUrls := []string{
 		gCurrent, gUpcoming, whiteCube, lisson, davidZwirner,
@@ -52,7 +58,8 @@ func main() {
 		lehmannMaupin, matthewMarksCurrent, matthewMarksUpcoming,
 		almineRech, karma, blum, davidKordansky, gladstone, maxHetzler,
 		perrotin, petzel, skarstedt, spruethMagers, xavierHufkens, francoisGhebaly,
-		levyGoryDayan, pilarCorrias,
+		levyGoryDayan, pilarCorrias, sadieColes, luhringAugustine, victoriaMiro,
+		kurimanzutto, kaufmannRepetto,
 		mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
 	}
 	galleryFunctions := []func(url string){
@@ -63,6 +70,8 @@ func main() {
 		updateKarma, updateBlum, updateDavidKordansky, updateGladstone, updateMaxHetzler,
 		updatePerrotin, updatePetzel, updateSkarstedt, updateSpruethMagers, updateXavierHufkens,
 		updateFrancoisGhebaly, updateLevyGorvyDayan, updatePilarCorrias,
+		updateSadieColes, updateLuhringAugustine, updateVictoriaMiro, updateKurimanzutto, 
+		updateKaufmannRepetto,
 		updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
