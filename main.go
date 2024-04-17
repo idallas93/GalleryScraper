@@ -46,10 +46,20 @@ func main() {
 	victoriaMiro := "https://www.victoria-miro.com/exhibitions/"
 	kurimanzutto := "https://www.kurimanzutto.com/exhibitions"
 	kaufmannRepetto := "https://kaufmannrepetto.com/exhibitions-current/"
-	mendesWood := "https://mendeswooddm.com/exhibitions/"
-	alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
-	hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
-	grimm := "https://grimmgallery.com/exhibitions/"
+	barbati := "https://www.barbatigallery.com/"
+	antonKern := "https://www.antonkerngallery.com/exhibitions/"
+	allisonJacques := "https://alisonjacques.com/exhibitions"
+	anatEbgi := "https://anatebgi.com/exhibitions/"
+	vitoSchnabel := "https://www.vitoschnabel.com/exhibitions"
+	bartolami := "https://www.bortolamigallery.com/exhibitions"
+	cahiersDart := "https://www.cahiersdart.com/en/gallery/"
+	canada := "https://www.canadanewyork.com/"
+	capitainPetzel := "https://www.capitainpetzel.de/exhibitions/"
+	caseyKaplan := "https://caseykaplangallery.com/exhibitions/"
+	// mendesWood := "https://mendeswooddm.com/exhibitions/"
+	// alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
+	// hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
+	// grimm := "https://grimmgallery.com/exhibitions/"
 
 
 	galleryUrls := []string{
@@ -59,8 +69,9 @@ func main() {
 		almineRech, karma, blum, davidKordansky, gladstone, maxHetzler,
 		perrotin, petzel, skarstedt, spruethMagers, xavierHufkens, francoisGhebaly,
 		levyGoryDayan, pilarCorrias, sadieColes, luhringAugustine, victoriaMiro,
-		kurimanzutto, kaufmannRepetto,
-		mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
+		kurimanzutto, kaufmannRepetto, barbati, antonKern, allisonJacques, anatEbgi,
+		vitoSchnabel, bartolami, cahiersDart, canada, capitainPetzel, caseyKaplan,
+		// mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
 	}
 	galleryFunctions := []func(url string){
 		updateGagosianData, updateGagosianData, updateWhiteCubeData,
@@ -71,8 +82,10 @@ func main() {
 		updatePerrotin, updatePetzel, updateSkarstedt, updateSpruethMagers, updateXavierHufkens,
 		updateFrancoisGhebaly, updateLevyGorvyDayan, updatePilarCorrias,
 		updateSadieColes, updateLuhringAugustine, updateVictoriaMiro, updateKurimanzutto, 
-		updateKaufmannRepetto,
-		updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
+		updateKaufmannRepetto, updateBarbati, updateAntonKern, updateAlisonJacques, updateAnatEbgi,
+		updateVitoSchnabel, updateBartolami, updateCahiersDart, updateCanada, updateCapitainPetzel,
+		updateCaseyKaplan,
+		// updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
 		for i := 0; i < len(galleryUrls); i++ {
