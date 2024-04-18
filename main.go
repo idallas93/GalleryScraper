@@ -56,6 +56,12 @@ func main() {
 	canada := "https://www.canadanewyork.com/"
 	capitainPetzel := "https://www.capitainpetzel.de/exhibitions/"
 	caseyKaplan := "https://caseykaplangallery.com/exhibitions/"
+	chantalCrousel := "https://www.crousel.com/en/exhibitions/"
+	charlesMoffett := "https://charlesmoffett.com/exhibitions/"
+	chateauShatto := "https://chateaushatto.com/"
+	chrisSharpGallery := "https://www.chrissharpgallery.com/upcoming"
+	clearing := "https://www.c-l-e-a-r-i-n-g.com/home-2/"
+
 	// mendesWood := "https://mendeswooddm.com/exhibitions/"
 	// alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
 	// hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
@@ -71,6 +77,7 @@ func main() {
 		levyGoryDayan, pilarCorrias, sadieColes, luhringAugustine, victoriaMiro,
 		kurimanzutto, kaufmannRepetto, barbati, antonKern, allisonJacques, anatEbgi,
 		vitoSchnabel, bartolami, cahiersDart, canada, capitainPetzel, caseyKaplan,
+		chantalCrousel, charlesMoffett, chateauShatto, chrisSharpGallery, clearing,
 		// mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
 	}
 	galleryFunctions := []func(url string){
@@ -84,7 +91,8 @@ func main() {
 		updateSadieColes, updateLuhringAugustine, updateVictoriaMiro, updateKurimanzutto, 
 		updateKaufmannRepetto, updateBarbati, updateAntonKern, updateAlisonJacques, updateAnatEbgi,
 		updateVitoSchnabel, updateBartolami, updateCahiersDart, updateCanada, updateCapitainPetzel,
-		updateCaseyKaplan,
+		updateCaseyKaplan, updateChantalCrousel, updateCharlieMoffett, updateChateauShatto, updateChrisSharpGallery,
+		updateClearing,
 		// updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
