@@ -31,7 +31,7 @@ func main() {
 	karma := "https://karmakarma.org/exhibitions/"
 	blum := "https://www.blum-gallery.com/exhibitions/categories/current"
 	davidKordansky := "https://www.davidkordanskygallery.com/exhibitions"
-	gladstone := "https://www.gladstonegallery.com/exhibitions"
+	gladstone := "https://www.gladstonegallery.com/"
 	maxHetzler := "https://www.maxhetzler.com/exhibitions"
 	perrotin := "https://www.perrotin.com/exhibitions/upcoming"
 	petzel := "https://www.petzel.com/exhibitions"
@@ -61,11 +61,20 @@ func main() {
 	chateauShatto := "https://chateaushatto.com/"
 	chrisSharpGallery := "https://www.chrissharpgallery.com/upcoming"
 	clearing := "https://www.c-l-e-a-r-i-n-g.com/home-2/"
-
-	// mendesWood := "https://mendeswooddm.com/exhibitions/"
-	// alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
-	// hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
-	// grimm := "https://grimmgallery.com/exhibitions/"
+	craigStarr := "http://www.craigstarr.com/exhibitions"
+	evaPresenhuber := "https://www.presenhuber.com/exhibitions"
+	galerieBuchholz := "https://www.galeriebuchholz.de/exhibitions"
+	giselaCapitain := "https://www.galeriecapitain.de/archive/?exhibition=upcoming&location=galerie-gisela-capitain"
+	greeneNaftali := "https://greenenaftaligallery.com/exhibitions"
+	thomasDaneGallery := "https://www.thomasdanegallery.com/exhibitions/"
+	timothyTaylor := "https://www.timothytaylor.com/"
+	utaArtistSpace := "https://utaartistspace.com/exhibition/"
+	vsf := "https://www.vsf.la/exhibitions/"
+	vielmetter := "https://vielmetter.com/exhibitions/"
+	mendesWood := "https://mendeswooddm.com/exhibitions/"
+	alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
+	hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
+	grimm := "https://grimmgallery.com/exhibitions/"
 
 
 	galleryUrls := []string{
@@ -78,7 +87,9 @@ func main() {
 		kurimanzutto, kaufmannRepetto, barbati, antonKern, allisonJacques, anatEbgi,
 		vitoSchnabel, bartolami, cahiersDart, canada, capitainPetzel, caseyKaplan,
 		chantalCrousel, charlesMoffett, chateauShatto, chrisSharpGallery, clearing,
-		// mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
+		craigStarr, evaPresenhuber, galerieBuchholz, giselaCapitain, greeneNaftali,
+		thomasDaneGallery, timothyTaylor, utaArtistSpace, vsf, vielmetter,
+		mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
 	}
 	galleryFunctions := []func(url string){
 		updateGagosianData, updateGagosianData, updateWhiteCubeData,
@@ -92,8 +103,9 @@ func main() {
 		updateKaufmannRepetto, updateBarbati, updateAntonKern, updateAlisonJacques, updateAnatEbgi,
 		updateVitoSchnabel, updateBartolami, updateCahiersDart, updateCanada, updateCapitainPetzel,
 		updateCaseyKaplan, updateChantalCrousel, updateCharlieMoffett, updateChateauShatto, updateChrisSharpGallery,
-		updateClearing,
-		// updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
+		updateClearing, updateCraigStarr, updateEvaPresenhuber, updateGalerieBuchholz, updateGiselaCapitain, updateGreeneNaftali,
+		updateThomasDaneGallery, updateTimothyTaylor, updateUtaArtistSpace, updateVsf, updateVielMetter,
+		updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
 		for i := 0; i < len(galleryUrls); i++ {

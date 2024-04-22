@@ -1,28 +1,33 @@
 package main
 
 import (
+	"fmt"
 	"log"
+
 	"github.com/gocolly/colly"
 )
 
 func updateGladstone(url string) {
 	c := colly.NewCollector()
 	var gladstoneExhibitions []Exhibition
-	c.OnHTML("#main_content", func(e *colly.HTMLElement) {
+	c.OnHTML("section.HomeSection.grid-container", func(e *colly.HTMLElement) {
 		e.ForEach("a", func(i int, colElement *colly.HTMLElement) {
-			artistText := colElement.ChildText("div.SmallTextCaps.Bold")
-			title := colElement.ChildText("div.SmallText.StayBlack.Ital")
+			artistText := colElement.ChildText("div.SmallTextCaps.small-TinyText.Bold")
+			fmt.Println(artistText)
+			title := colElement.ChildText("div.SmallText.small-TinyText.StayBlack.Ital")
 			date := colElement.ChildText("span")
-			location := colElement.ChildText("div.SmallText.StayBlack")
-			gladstoneExhibitions = append(gladstoneExhibitions, Exhibition{
-				Gallery:   "Gladstone",
-				Location:  location,
-				Artist:    artistText,
-				Title:     title,
-				StartDate: date,
-				EndDate:   date,
-				Notes:     "",
-			})
+			location := colElement.ChildText("div.smallText.small-TinyText.StayBlack")
+			if(artistText != ""){
+				gladstoneExhibitions = append(gladstoneExhibitions, Exhibition{
+					Gallery:   "Gladstone",
+					Location:  location,
+					Artist:    artistText,
+					Title:     title,
+					StartDate: date,
+					EndDate:   date,
+					Notes:     "",
+				})
+			}
 		})
 	})
 	err := c.Visit(url)

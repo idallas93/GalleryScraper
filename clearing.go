@@ -1,28 +1,37 @@
 package main
 
 import (
-	"github.com/gocolly/colly"
 	"log"
+	"strconv"
+
+	"github.com/gocolly/colly"
 )
 
 func updateClearing(url string) {
 	c := colly.NewCollector()
 	var clearingExhibitions []Exhibition
 	c.OnHTML("#contenair", func(e *colly.HTMLElement) {
-		e.ForEach("section:nth-of-type(1)", func(i int, colElement *colly.HTMLElement) {
-			artistText := colElement.ChildText("p:nth-of-type(1)")
-			title := ""
+		e.ForEach("section", func(i int, colElement *colly.HTMLElement) {
 			date := colElement.ChildText("p:nth-of-type(2)")
-			location := colElement.ChildText("p:nth-of-type(3)")
-			clearingExhibitions = append(clearingExhibitions, Exhibition{
-				Gallery:   "Clearing",
-				Location:  location,
-				Artist:    artistText,
-				Title:     title,
-				StartDate: date,
-				EndDate:   date,
-				Notes:     "",
-			})
+			var year string
+			if len(date) >= 4{
+				year = date[len(date)-4:]
+			}
+			num, _ := strconv.Atoi(year)
+			if year != "" && num >= 2024 {
+				artistText := colElement.ChildText("p:nth-of-type(1)")
+				title := ""
+				location := colElement.ChildText("p:nth-of-type(3)")
+				clearingExhibitions = append(clearingExhibitions, Exhibition{
+					Gallery:   "Clearing",
+					Location:  location,
+					Artist:    artistText,
+					Title:     title,
+					StartDate: date,
+					EndDate:   date,
+					Notes:     "",
+				})
+			}
 		})
 	})
 	err := c.Visit(url)
