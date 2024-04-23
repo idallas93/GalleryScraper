@@ -32,7 +32,6 @@ func updateGagosianData(url string) {
 				EndDate:   dates,
 				Notes:     notes,
 			})
-			// fmt.Printf("Artist: %s\nTitle: %s\nDates: %s\nLocation: %s\n\n", artist, title, dates, location)
 		} else if len(splitText) > 3 {
 			artist := splitText[0]
 			title := splitText[1]
@@ -47,7 +46,6 @@ func updateGagosianData(url string) {
 				EndDate:   dates,
 				Notes:     "",
 			})
-			// fmt.Printf("Artist: %s\nTitle: %s\nDates: %s\nLocation: %s\n\n", artist, title, dates, location)
 		} else if len(splitText) > 2 {
 			artist := splitText[0]
 			dates := splitText[1]
@@ -61,7 +59,6 @@ func updateGagosianData(url string) {
 				EndDate:   dates,
 				Notes:     "",
 			})
-			// fmt.Printf("Artist: %s\nDates: %s\nLocation:%s\n\n", artist, dates, location)
 		}
 	})
 	err := c.Visit(url)

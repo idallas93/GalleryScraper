@@ -1,9 +1,7 @@
 package main
 
 import (
-	"fmt"
 	"log"
-
 	"github.com/gocolly/colly"
 )
 
@@ -13,7 +11,6 @@ func updateGladstone(url string) {
 	c.OnHTML("section.HomeSection.grid-container", func(e *colly.HTMLElement) {
 		e.ForEach("a", func(i int, colElement *colly.HTMLElement) {
 			artistText := colElement.ChildText("div.SmallTextCaps.small-TinyText.Bold")
-			fmt.Println(artistText)
 			title := colElement.ChildText("div.SmallText.small-TinyText.StayBlack.Ital")
 			date := colElement.ChildText("span")
 			location := colElement.ChildText("div.smallText.small-TinyText.StayBlack")

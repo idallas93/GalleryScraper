@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+
 	"github.com/360EntSecGroup-Skylar/excelize"
 )
 
@@ -69,13 +70,28 @@ func main() {
 	thomasDaneGallery := "https://www.thomasdanegallery.com/exhibitions/"
 	timothyTaylor := "https://www.timothytaylor.com/"
 	utaArtistSpace := "https://utaartistspace.com/exhibition/"
-	vsf := "https://www.vsf.la/exhibitions/"
 	vielmetter := "https://vielmetter.com/exhibitions/"
-	mendesWood := "https://mendeswooddm.com/exhibitions/"
-	alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
-	hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
-	grimm := "https://grimmgallery.com/exhibitions/"
+	stephenFriedman := "https://www.stephenfriedman.com/"
+	sikkemaJenkins := "https://www.sikkemajenkinsco.com/current-exhibitions"
+	rachelUffner := "https://racheluffnergallery.com/exhibitions/"
+	reegenProjects := "https://www.regenprojects.com/exhibitions"
+	robertsProjects := "https://www.robertsprojectsla.com/exhibitions"
+	seanKelly := "https://www.skny.com/exhibitions"
+	ppow := "https://www.ppowgallery.com/exhibitions"
+	paulaCooper := "https://www.paulacoopergallery.com/exhibitions"
+	peresProjects := "https://peresprojects.com/exhibitions/"
+	houldsworth := "https://www.houldsworth.co.uk/"
+	prazDelavallade := "https://www.praz-delavallade.com/current"
 
+
+
+
+	// mendesWood := "https://mendeswooddm.com/exhibitions/"
+	// alexanderBerggruen := "https://alexanderberggruen.com/exhibitions/"
+	// hauserAndWorth := "https://www.hauserwirth.com/hauser-wirth-exhibitions/?date=forthcoming"
+	// grimm := "https://grimmgallery.com/exhibitions/"
+	// vsf := "https://www.vsf.la/exhibitions/"
+	// tanyabondakdar := "https://www.tanyabonakdargallery.com/exhibitions/"
 
 	galleryUrls := []string{
 		gCurrent, gUpcoming, whiteCube, lisson, davidZwirner,
@@ -88,8 +104,10 @@ func main() {
 		vitoSchnabel, bartolami, cahiersDart, canada, capitainPetzel, caseyKaplan,
 		chantalCrousel, charlesMoffett, chateauShatto, chrisSharpGallery, clearing,
 		craigStarr, evaPresenhuber, galerieBuchholz, giselaCapitain, greeneNaftali,
-		thomasDaneGallery, timothyTaylor, utaArtistSpace, vsf, vielmetter,
-		mendesWood, alexanderBerggruen, hauserAndWorth, grimm,
+		thomasDaneGallery, timothyTaylor, utaArtistSpace, vielmetter, stephenFriedman, sikkemaJenkins,
+		rachelUffner, reegenProjects, robertsProjects, seanKelly,
+		ppow, paulaCooper, peresProjects, houldsworth, prazDelavallade,
+		// mendesWood, alexanderBerggruen, hauserAndWorth, grimm, vsf, tanyabondakdar,
 	}
 	galleryFunctions := []func(url string){
 		updateGagosianData, updateGagosianData, updateWhiteCubeData,
@@ -99,13 +117,15 @@ func main() {
 		updateKarma, updateBlum, updateDavidKordansky, updateGladstone, updateMaxHetzler,
 		updatePerrotin, updatePetzel, updateSkarstedt, updateSpruethMagers, updateXavierHufkens,
 		updateFrancoisGhebaly, updateLevyGorvyDayan, updatePilarCorrias,
-		updateSadieColes, updateLuhringAugustine, updateVictoriaMiro, updateKurimanzutto, 
+		updateSadieColes, updateLuhringAugustine, updateVictoriaMiro, updateKurimanzutto,
 		updateKaufmannRepetto, updateBarbati, updateAntonKern, updateAlisonJacques, updateAnatEbgi,
 		updateVitoSchnabel, updateBartolami, updateCahiersDart, updateCanada, updateCapitainPetzel,
 		updateCaseyKaplan, updateChantalCrousel, updateCharlieMoffett, updateChateauShatto, updateChrisSharpGallery,
 		updateClearing, updateCraigStarr, updateEvaPresenhuber, updateGalerieBuchholz, updateGiselaCapitain, updateGreeneNaftali,
-		updateThomasDaneGallery, updateTimothyTaylor, updateUtaArtistSpace, updateVsf, updateVielMetter,
-		updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm,
+		updateThomasDaneGallery, updateTimothyTaylor, updateUtaArtistSpace, updateVielMetter, updateStephenFriedman, updateSikkemaJenkins,
+		updateRachelUffner, updateRegenProjects, updateRobertsProjects, updateSeanKelly,
+		updatePpow, updatePaulaCooperGallery, updatePeresProjects, updatePippyHouldsworth, updatePrazDelavallade,
+		// updateMendesWoodData, updateAlexanderBerggruen, updateHauserAndWirthData, updateGrimm, updateVsf, updateTanyaBonakdar,
 	}
 	if len(galleryUrls) == len(galleryFunctions) {
 		for i := 0; i < len(galleryUrls); i++ {
